@@ -1,0 +1,85 @@
+import './styling/index.css'
+
+function App() {
+  return (
+      <div className="wrapper">
+        <div className="sidebar">
+          <h1>Your</h1>
+          <h1 style={{"color": "var(--accent)"}}>Name</h1>
+          <nav>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+          </nav>
+          <div className="socials">
+            <a href="#" aria-label="GitHub">GitHub</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            <a href="#" aria-label="Twitter">Twitter</a>
+          </div>
+        </div>
+
+        <div className="content">
+          <section className="hero" id="home">
+            <h1>Hi — I’m <span style={{"color": "var(--accent)"}}>Matthew Gadsden</span>.</h1>
+            <p>I build modern, performant and accessible web applications. I love clean code, simple UX, and thoughtful design.</p>
+          </section>
+          <section id="about">
+            <h2>About</h2>
+            <p>
+              I’m a software developer with a passion for building intuitive user experiences and robust backend systems.
+              I enjoy working across the stack, learning new technologies, and building things that people find useful.
+            </p>
+            <p>
+              My stack includes JavaScript/TypeScript, HTML/CSS, as well as some backend tooling. I’m always exploring
+              new tools and ways to improve performance, accessibility, and maintainability.
+            </p>
+          </section>
+          <section id="experience">
+            <h2>Experience</h2>
+            <div className="experience-item">
+              <h3>Software Engineer — Example Company</h3>
+              <div className="meta">Jan 2023 — Present · Remote</div>
+              <p>Working on building scalable web applications. Collaborated with designers and product team to deliver features end-to-end.</p>
+            </div>
+
+            <div className="experience-item">
+              <h3>Backend Developer — Another Company</h3>
+              <div className="meta">Jun 2021 — Dec 2022 · City, Country</div>
+              <p>Built REST APIs, improved performance and reliability, and wrote automated tests. Maintained CI/CD pipelines.</p>
+            </div>
+          </section>
+          <section id="projects">
+            <h2>Projects</h2>
+            <div className="projects">
+
+              <div className="project-card">
+                <h3>Project One</h3>
+                <p>A web application built with React and Node. Implements clean UI, efficient data fetching, and responsive design.</p>
+              </div>
+
+              <div className="project-card">
+                <h3>Project Two</h3>
+                <p>An API service with a focus on performance, written in TypeScript. Includes authentication, caching, and documentation.</p>
+              </div>
+
+              <div className="project-card">
+                <h3>Project Three</h3>
+                <p>A small tool/utility that automates a repetitive task and helps improve productivity.</p>
+              </div>
+
+            </div>
+          </section>
+          <section id="contact">
+            <h2>Contact</h2>
+            <p>
+              I'm currently open to new opportunities and collaborations.  
+              Feel free to <a href="mailto:your@email.com">email me</a> or reach out on social media!
+            </p>
+          </section>
+        </div>
+      </div>
+  )
+}
+
+export default App
