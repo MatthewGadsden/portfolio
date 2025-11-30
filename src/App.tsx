@@ -22,17 +22,20 @@ function App() {
         <div className="content">
           <section className="hero" id="home">
             <h1>Hi — I’m <span style={{"color": "var(--accent)"}}>Matthew Gadsden</span>.</h1>
-            <p>I build modern, performant and accessible web applications. I love clean code, simple UX, and thoughtful design.</p>
+            <p>I am currently Technical Lead for Compass Education.</p>
+            <p>I work in the full stack, but consider my strength to be in the backend, delivering efficient and resilient backends to support business needs.</p>
           </section>
           <section id="about">
             <h2>About</h2>
             <p>
-              I’m a software developer with a passion for building intuitive user experiences and robust backend systems.
-              I enjoy working across the stack, learning new technologies, and building things that people find useful.
+              I am deeply interested in the entire software development process. I am a full stack developer,
+              delivering clean user friendly frontends that are supported by efficient backends. I strive to 
+              deliver solutions that have been thoroughly thought out and architected to fit business needs 
+              and consider the future of the product.
             </p>
             <p>
-              My stack includes JavaScript/TypeScript, HTML/CSS, as well as some backend tooling. I’m always exploring
-              new tools and ways to improve performance, accessibility, and maintainability.
+              I am open to working in any stack, languages are all relatively the same they just have a different dictionary that provide the same tools. 
+              That said I currently work with .Net backend, React/ExtJs frontend in my day to day.
             </p>
           </section>
           <section id="experience">
