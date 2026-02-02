@@ -7,6 +7,7 @@
   /* text */
   --text: #ebdbb2;
   --text-muted: #928374;
+  --text-accent: var(--purple);
   
   /* colours */
   --red: #fb4934;
