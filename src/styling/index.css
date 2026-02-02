@@ -11,6 +11,7 @@ body {
   flex-direction: row;
   min-height: 100vh;
 }
+.socials a { color: var(--accent); }
 a { color: var(--text-accent); text-decoration: none; }
 
 .wrapper {
@@ -26,7 +27,7 @@ a { color: var(--text-accent); text-decoration: none; }
   bottom: 0;
   left: 0;
   background: var(--bg-dark);
-  border-right: 1px solid #3a3a3a;
+  border-right: 1px solid var(--bg-light);
   display: flex;
   flex-direction: column;
   text-align: right;
@@ -52,7 +53,7 @@ a { color: var(--text-accent); text-decoration: none; }
   transition: color 0.2s;
 }
 .sidebar nav a:hover {
-  color: var(--blue);
+  color: var(--text);
 }
 .sidebar .socials {
   display: flex;
@@ -149,15 +150,15 @@ ul {
   gap: 1.5rem;
 }
 .project-card {
-  background: #1e1e1e;
-  border: 1px solid #3a3a3a;
+  background: var(--bg-dark);
+  border: 1px solid var(--bg-light);
   border-radius: 6px;
   padding: 1.5rem;
   transition: transform 0.2s, border-color 0.2s;
 }
 .project-card:hover {
   transform: translateY(-3px);
-  border-color: var(--accent);
+  border-color: var(--red);
 }
 .project-card h3 {
   margin-top: 0;
@@ -181,7 +182,7 @@ ul {
     position: relative;
     width: 100%;
     border-right: none;
-    border-bottom: 1px solid #3a3a3a;
+    border-bottom: 1px solid var(--bg-light);
   }
   .content {
     margin-left: 0;
