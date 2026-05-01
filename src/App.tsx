@@ -1,87 +1,168 @@
+import { useEffect, useState } from 'react'
 import './styling/index.css'
 
 function App() {
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark')
+
+  useEffect(() => {
+    const root = document.documentElement
+    const storedTheme = localStorage.getItem('theme')
+
+    if (storedTheme === 'dark' || storedTheme === 'light') {
+      setTheme(storedTheme)
+      root.setAttribute('data-theme', storedTheme)
+      return
+    }
+
+    const prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches
+    const initialTheme = prefersLight ? 'light' : 'dark'
+    setTheme(initialTheme)
+    root.setAttribute('data-theme', initialTheme)
+  }, [])
+
+  const toggleTheme = () => {
+    const nextTheme = theme === 'dark' ? 'light' : 'dark'
+    setTheme(nextTheme)
+    document.documentElement.setAttribute('data-theme', nextTheme)
+    localStorage.setItem('theme', nextTheme)
+  }
+
+  const experience = [
+    {
+      period: 'Dec. 2023 - Present',
+      title: 'Technical Lead',
+      company: 'Compass Education',
+      description:
+        'Leading a cross-functional team delivering resilient platform features, with a focus on architecture, API quality, and measurable product outcomes.',
+      stack: ['.NET', 'React', 'SQL', 'AWS', 'GCP', 'CI/CD'],
+    },
+    {
+      period: 'Sep. 2022 - Dec. 2023',
+      title: 'Software Engineer',
+      company: 'Compass Education',
+      description:
+        'As a full stack engineer I worked across multiple teams during this role, handling changes and bug fixes for a variety of different modules, using many different technologies.<br/><br/>Disconnected Apps Team:<br/> - Modules worked on: Photos, Push Notifications, Kiosk, Door Access<br/><br/>Payments Team:<br/>- Modules worked on: Billing Management, Canteen Ordering/Management, CompassPay, Financial Management',
+      stack: ['.NET', 'React', 'AWS', 'CI/CD', 'SQL'],
+    },
+    {
+      period: 'Sep. 2021 - Aug. 2022',
+      title: 'Graduate Software Engineer',
+      company: 'Compass Education',
+      description:
+        'My Graduate Year as a Developer <br/>- Upskilling myself in many areas of the product and technologies (React, ASP.NET Framework, ExtJS, SQL, MongoDB & GraphQL)<br/>- I took ownership and became an expert in the MSP photos module<br/>- Became an expert in the companies notification services',
+      stack: ['.NET', 'React', 'SQL'],
+    },
+    {
+      period: 'Nov. 2018 - Sep. 2021',
+      title: 'Inventory Controller / Programmer',
+      company: 'Ladelle Group',
+      description: '',
+      stack: ['Python', 'tkinter', 'Excel'],
+    },
+  ]
+
   return (
+    <main className="page">
+      <div className="page-glow" aria-hidden="true" />
       <div className="wrapper">
-        <div className="sidebar">
-          <h1>Your</h1>
-          <h1 style={{"color": "var(--accent)"}}>Name</h1>
-          <nav>
-            <a href="#about">About</a>
-            <a href="#experience">Experience</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-          </nav>
-          <div className="socials">
-            <a href="#" aria-label="GitHub">GitHub</a>
-            <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            <a href="#" aria-label="Twitter">Twitter</a>
+        <aside className="sidebar">
+          <div className="sidebar-content">
+            <h1>Matthew Gadsden</h1>
+            <p className="role">Technical Lead / Full-Stack Engineer</p>
+            <p className="tagline">I build dependable digital products for the web.</p>
+
+            <nav className="section-nav" aria-label="Sections">
+              <a href="#about">About</a>
+              <a href="#experience">Experience</a>
+              <a href="#projects">Projects</a>
+            </nav>
           </div>
-        </div>
+
+          <div className="socials">
+            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
+              GH
+            </a>
+            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              IN
+            </a>
+            <a href="mailto:hello@example.com" aria-label="Email">
+              @
+            </a>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+              title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            >
+              {theme === 'dark' ? 'LT' : 'DK'}
+            </button>
+          </div>
+        </aside>
 
         <div className="content">
-          <section className="hero" id="home">
-            <h1>Hi — I’m <span style={{"color": "var(--accent)"}}>Matthew Gadsden</span>.</h1>
-            <p>I am currently Technical Lead for Compass Education.</p>
-            <p>I work in the full stack, but consider my strength to be in the backend, delivering efficient and resilient backends to support business needs.</p>
-          </section>
           <section id="about">
-            <h2>About</h2>
             <p>
-              I am deeply interested in the entire software development process. I am a full stack developer,
-              delivering clean user friendly frontends that are supported by efficient backends. I strive to 
-              deliver solutions that have been thoroughly thought out and architected to fit business needs 
-              and consider the future of the product.
+              I am a hands-on engineer with an appetite for practical product work. I focus on turning
+              ambiguous requirements into clear, maintainable software with thoughtful UX and strong
+              technical foundations.
             </p>
             <p>
-              I am open to working in any stack, languages are all relatively the same they just have a different dictionary that provide the same tools. 
-              That said I currently work with .Net backend, React/ExtJs frontend in my day to day.
+              My day-to-day spans architecture, backend services, front-end implementation, and mentoring.
+              I enjoy balancing speed and quality, so teams can ship confidently without creating long-term
+              maintenance drag.
+            </p>
+            <p>
+              Outside of work, I enjoy tinkering with small side projects, learning new technologies, and
+              refining workflows that make teams more effective.
             </p>
           </section>
+
           <section id="experience">
-            <h2>Experience</h2>
-            <div className="experience-item">
-              <h3>Software Engineer — Example Company</h3>
-              <div className="meta">Jan 2023 — Present · Remote</div>
-              <p>Working on building scalable web applications. Collaborated with designers and product team to deliver features end-to-end.</p>
-            </div>
-
-            <div className="experience-item">
-              <h3>Backend Developer — Another Company</h3>
-              <div className="meta">Jun 2021 — Dec 2022 · City, Country</div>
-              <p>Built REST APIs, improved performance and reliability, and wrote automated tests. Maintained CI/CD pipelines.</p>
-            </div>
+            {experience.map((item) => (
+              <article className="experience-item" key={`${item.period}-${item.title}`}>
+                <div className="meta">{item.period}</div>
+                <div>
+                  <h3>
+                    {item.title}
+                  </h3>
+                  <span className="company">{item.company}</span>
+                  <p dangerouslySetInnerHTML={{ __html: item.description }} />
+                  <ul className="stack">
+                    {item.stack.map((tech) => (
+                      <li key={tech}>{tech}</li>
+                    ))}
+                  </ul>
+                </div>
+              </article>
+            ))}
           </section>
+
           <section id="projects">
-            <h2>Projects</h2>
-            <div className="projects">
-
-              <div className="project-card">
-                <h3>Project One</h3>
-                <p>A web application built with React and Node. Implements clean UI, efficient data fetching, and responsive design.</p>
-              </div>
-
-              <div className="project-card">
-                <h3>Project Two</h3>
-                <p>An API service with a focus on performance, written in TypeScript. Includes authentication, caching, and documentation.</p>
-              </div>
-
-              <div className="project-card">
-                <h3>Project Three</h3>
-                <p>A small tool/utility that automates a repetitive task and helps improve productivity.</p>
-              </div>
-
-            </div>
-          </section>
-          <section id="contact">
-            <h2>Contact</h2>
-            <p>
-              I'm currently open to new opportunities and collaborations.  
-              Feel free to <a href="mailto:your@email.com">email me</a> or reach out on social media!
-            </p>
+            <article className="project-card">
+              <h3>Platform Reliability Program</h3>
+              <p>
+                Introduced observability and performance improvements that reduced incident noise and
+                improved response confidence for critical platform services.
+              </p>
+            </article>
+            <article className="project-card">
+              <h3>Workflow Automation Toolkit</h3>
+              <p>
+                Built internal tooling to automate repetitive engineering tasks, reducing setup and release
+                overhead across multiple teams.
+              </p>
+            </article>
+            <article className="project-card">
+              <h3>Customer Experience Improvements</h3>
+              <p>
+                Delivered UX and API enhancements that simplified key user journeys while improving
+                performance and maintainability.
+              </p>
+            </article>
           </section>
         </div>
       </div>
+    </main>
   )
 }
 
