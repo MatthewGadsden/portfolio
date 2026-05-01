@@ -67,10 +67,19 @@ function App() {
       <div className="wrapper">
         <aside className="sidebar">
           <div className="sidebar-content">
-            <h1>Matthew Gadsden</h1>
+            
+            <div className="sidebar-subheader">
+            
+              <img
+                className="sidebar-sloth"
+                src="https://raw.githubusercontent.com/MatthewGadsden/MatthewGadsden/main/images/sloth.png"
+                alt="Pixel art sloth"
+              />
+              <h1>Matthew Gadsden</h1>
+              
+            </div>
             <p className="role">Technical Lead / Full-Stack Engineer</p>
             <p className="tagline">I build dependable digital products for the web.</p>
-
             <nav className="section-nav" aria-label="Sections">
               <a href="#about">About</a>
               <a href="#experience">Experience</a>
@@ -79,13 +88,13 @@ function App() {
           </div>
 
           <div className="socials">
-            <a href="https://github.com" target="_blank" rel="noreferrer" aria-label="GitHub">
-              GH
+            <a href="https://github.com/MatthewGadsden" target="_blank" rel="noreferrer" aria-label="GitHub">
+              gh
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noreferrer" aria-label="LinkedIn">
-              IN
+            <a href="https://linkedin.com/in/matthewgadsden" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+              in
             </a>
-            <a href="mailto:hello@example.com" aria-label="Email">
+            <a href="mailto:matthewjgadsden@gmail.com" aria-label="Email">
               @
             </a>
             <button
@@ -94,7 +103,7 @@ function App() {
               aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
               title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
             >
-              {theme === 'dark' ? 'LT' : 'DK'}
+              {theme === 'dark' ? 'lt' : 'dk'}
             </button>
           </div>
         </aside>
