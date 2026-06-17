@@ -110,6 +110,9 @@ function App() {
 
         <div className="content">
           <section id="about">
+	    <u>
+	      <h3 className="thin">About Me</h3>
+	    </u>
             <p>
               I am a hands-on engineer with an appetite for practical product work. I focus on turning
               ambiguous requirements into clear, maintainable software with thoughtful UX and strong
@@ -127,6 +130,9 @@ function App() {
           </section>
 
           <section id="experience">
+	    <u>
+	      <h3 className="thin">Experience</h3>
+	    </u>
             {experience.map((item) => (
               <article className="experience-item" key={`${item.period}-${item.title}`}>
                 <div className="meta">{item.period}</div>
@@ -147,6 +153,9 @@ function App() {
           </section>
 
           <section id="projects">
+	    <u>
+	      <h3 className="thin">Projects</h3>
+	    </u>
             <article className="project-card">
               <h3>Platform Reliability Program</h3>
               <p>
