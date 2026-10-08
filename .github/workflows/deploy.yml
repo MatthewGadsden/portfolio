@@ -12,7 +12,7 @@ concurrency:
 
 env:
   # Name of the Cloudflare Pages project (must already exist in your Cloudflare account)
-  CLOUDFLARE_PROJECT_NAME: "portfolio-site-7x6"
+  CLOUDFLARE_PROJECT_NAME: "portfolio-site"
   # Must match the production branch configured on the Pages project, so tagged builds go to production
   PRODUCTION_BRANCH: "main"
 
