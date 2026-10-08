@@ -50,3 +50,4 @@ jobs:
             --branch=${{ env.PRODUCTION_BRANCH }}
             --commit-hash=${{ github.sha }}
             --commit-message="${{ github.ref_name }}"
+            --commit-dirty=true
