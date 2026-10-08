@@ -1,4 +1,7 @@
 import './styling/index.css'
+import happierPathThumb from './assets/projects/happierpath.jpg'
+import rustZero2ProdThumb from './assets/projects/rust-zero2prod.svg'
+import warehouseManagerThumb from './assets/projects/warehouse-manager.png'
 
 function App() {
 	const experience = [
@@ -47,6 +50,7 @@ function App() {
 		{
 			title: 'Warehouse Manager',
 			repo: 'MatthewGadsden/WarehouseManager',
+			thumbnail: { src: warehouseManagerThumb, alt: 'Warehouse Manager distro program screen', fit: 'cover' },
 			description:
 				'A desktop tool, built while working at The Ladelle Group, that automates custom work orders for warehouse staff and reports on the state of the warehouse and its product lines. It works from data exported from the WISE warehouse system, with a Tkinter UI so less technical staff could use it.',
 			stack: ['Python', 'Tkinter', 'pandas'],
@@ -54,6 +58,7 @@ function App() {
 		{
 			title: 'Zero To Production API',
 			repo: 'MatthewGadsden/rust-zero2prod',
+			thumbnail: { src: rustZero2ProdThumb, alt: 'Rust logo', fit: 'contain' },
 			description:
 				'A production-style backend API built while working through Zero To Production in Rust: an Actix Web server backed by PostgreSQL through SQLx migrations, with integration tests and a GitHub Actions pipeline that runs them against a Postgres service container.',
 			stack: ['Rust', 'Actix Web', 'PostgreSQL', 'SQLx', 'Docker', 'GitHub Actions'],
@@ -61,6 +66,7 @@ function App() {
 		{
 			title: 'HappierPath',
 			repo: 'jamesr981/HappierPath',
+			thumbnail: { src: happierPathThumb, alt: 'HappierPath popup open over a Wikipedia page', fit: 'cover' },
 			contribution: true,
 			description:
 				'A Manifest V3 browser extension for Chrome and Firefox that bookmarks URL paths instead of full addresses, so the same admin tools can be opened across hundreds of sites that share a route structure. I contributed the extension options page and syncing saved paths to your browser account with a local storage fallback, merged upstream in v4.3.0.',
@@ -172,19 +178,27 @@ function App() {
 						</u>
 						{projects.map((project) => (
 							<article className="project-card" key={project.repo}>
-								<h3>
-									<a href={`https://github.com/${project.repo}`} target="_blank" rel="noreferrer">
-										{project.title}
-									</a>
-									{project.contribution && <span className="project-badge">Contribution</span>}
-								</h3>
-								<div className="meta">{project.repo}</div>
-								<p>{project.description}</p>
-								<ul className="stack">
-									{project.stack.map((tech) => (
-										<li key={tech}>{tech}</li>
-									))}
-								</ul>
+								<img
+									className={`project-thumb project-thumb-${project.thumbnail.fit}`}
+									src={project.thumbnail.src}
+									alt={project.thumbnail.alt}
+									loading="lazy"
+								/>
+								<div className="project-body">
+									<h3>
+										<a href={`https://github.com/${project.repo}`} target="_blank" rel="noreferrer">
+											{project.title}
+										</a>
+										{project.contribution && <span className="project-badge">Contribution</span>}
+									</h3>
+									<div className="meta">{project.repo}</div>
+									<p>{project.description}</p>
+									<ul className="stack">
+										{project.stack.map((tech) => (
+											<li key={tech}>{tech}</li>
+										))}
+									</ul>
+								</div>
 							</article>
 						))}
 						<button type="button" className="more-projects">

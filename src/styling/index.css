@@ -330,12 +330,40 @@ section {
 }
 
 .project-card {
+	display: grid;
+	grid-template-columns: 8.5rem minmax(0, 1fr);
+	gap: 1rem;
+	align-items: start;
 	border: 1px solid var(--border-soft-strong);
 	border-radius: 5px;
 	padding: 1rem 1.05rem;
 	background: var(--bg-surface);
 	backdrop-filter: var(--surface-blur);
 	transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.project-thumb {
+	display: block;
+	width: 100%;
+	aspect-ratio: 16 / 10;
+	border: 1px solid var(--border-soft);
+	border-radius: 4px;
+	transition: border-color 0.2s ease;
+}
+
+.project-thumb-cover {
+	object-fit: cover;
+	object-position: top;
+}
+
+.project-thumb-contain {
+	object-fit: contain;
+	padding: 0.6rem;
+	background: var(--snow);
+}
+
+.project-card:hover .project-thumb {
+	border-color: var(--border-hover);
 }
 
 .project-card:hover {
@@ -532,5 +560,14 @@ section {
 
 	.content u h3 {
 		margin-top: 0;
+	}
+
+	.project-card {
+		grid-template-columns: 1fr;
+	}
+
+	.project-thumb {
+		aspect-ratio: auto;
+		height: 8rem;
 	}
 }
